@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>weather</title>
+    
+    {% load static %}
+    <link rel="stylesheet" href="/static/css/stylesheet.css">
+</head>
+<body style="background-image: url('{% static "icon/background-image.jpg" %}');   background-repeat: no-repeat; background-size:cover;"> 
+    <form action="" method="post" class="col-md-6 col-md-offset-3">
+      
+      {% csrf_token %}
+  <div class="container">
+      <div class="header">
+       <div class="search-box">
+        <input type="text" class="input-box" name="city" placeholder="Enter Your Location"> 
+          <button class="fa-solid fa-magnifying-glass" type="submit">
+          </button>
+       </div>
+      </div>
+        <form>
+    <div class="weather-body">
+      <div class="weather-box">
+        <h2>Weather in {{city}}</h2>
+        <p class="temprature">temp : {{data.temp}} <sup>°C</sup></p>
+      </div>
+      <div class="weather-details">
+        <p class="description">description : {{data.description}}</p>
+          <p class="pressure">pressure : {{data.pressure}}   mBar </p>
+          <p class="humidity">humidity : {{data.humidity}} %<i class="fa-sharp fa-solid fa-droplet"></i></p>
+        <p class="wind">wind : {{data.wind}}  <i class="fa-solid fa-wind"></i></p>
+      </div>
+    </div>
+  </div>
+<script src="https://kit.fontawesome.com/b832e815a7.js" crossorigin="anonymous"></script>
+</body>
+</html>
